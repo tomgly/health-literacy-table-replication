@@ -1,7 +1,9 @@
 import pandas as pd
 from statsmodels.stats.proportion import proportion_confint
+from scipy.stats import chi2_contingency
 
 DATA_PATH = "data/raw/hl_qol.csv"
+GENDER_ORDER = ["Male", "Female"]
 
 
 def print_section(title):
@@ -16,15 +18,22 @@ def prepare_table2_data(df):
 
 
 def make_gender_table(df, df_table2):
-    gender_n = df["Gender"].value_counts().sort_index()
+    gender_n = df["Gender"].value_counts().reindex(GENDER_ORDER)
     gender_percent = gender_n / len(df) * 100
 
     gender_hl = (
         df_table2
         .groupby("Gender")["inadequate_hl"]
         .agg(["count", "sum", "mean"])
-        .sort_index()
+        .reindex(GENDER_ORDER)
     )
+
+    gender_cross = pd.crosstab(
+        df_table2["Gender"],
+        df_table2["inadequate_hl"],
+    ).reindex(GENDER_ORDER)
+
+    _, p_value, _, _ = chi2_contingency(gender_cross.to_numpy())
 
     result = pd.DataFrame({
         "N": gender_n,
@@ -32,6 +41,8 @@ def make_gender_table(df, df_table2):
         "inadequate_n": gender_hl["sum"],
         "prevalence_percent": gender_hl["mean"] * 100,
     })
+
+    result["p_value"] = p_value
 
     ci_low, ci_high = proportion_confint(
         count=gender_hl["sum"],
@@ -48,6 +59,7 @@ def make_gender_table(df, df_table2):
         "prevalence_percent": 1,
         "ci_low": 1,
         "ci_high": 1,
+        "p_value": 3,
     })
 
 
@@ -60,3 +72,6 @@ print(round(df_table2["inadequate_hl"].mean() * 100, 1))
 
 print_section("gender result")
 print(make_gender_table(df, df_table2))
+
+print_section("note")
+print("Table 2 may not fully match the published values when recalculated from this dataset.")
