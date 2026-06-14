@@ -5,6 +5,7 @@ from pathlib import Path
 
 DATA_PATH = "data/raw/hl_qol.csv"
 OUTPUT_PATH = "outputs/table2_preview.csv"
+EXCEL_OUTPUT_PATH = "outputs/table2_preview.xlsx"
 
 TABLE2_BLOCKS = [
     ("Gender", ["Male", "Female"]),
@@ -127,7 +128,9 @@ for variable_name, category_order in TABLE2_BLOCKS:
 table2_preview = pd.concat(formatted_blocks, ignore_index=True)
 Path("outputs").mkdir(exist_ok=True)
 table2_preview.to_csv(OUTPUT_PATH, index=False)
+table2_preview.to_excel(EXCEL_OUTPUT_PATH, index=False)
 
 print_section("note")
 print("Table 2 may not fully match the published values when recalculated from this dataset.")
 print(f"Saved preview to {OUTPUT_PATH}")
+print(f"Saved Excel preview to {EXCEL_OUTPUT_PATH}")
