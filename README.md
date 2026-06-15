@@ -10,10 +10,24 @@
 
 ## 主なファイル
 
+### スクリプト
+
+- `scripts/01_load_data.py`
+  - データの形、列名、欠損、主要変数を確認するスクリプト
+- `scripts/02_table2_gender.py`
+  - Table 2 の Gender 部分だけを確認するスクリプト
 - `scripts/03_table2_blocks.py`
   - Table 2 の集計を作るPythonスクリプト
+- `scripts/04_table3_gender.py`
+  - Table 3 の Gender 部分を確認するスクリプト
+
+### ノート
+
 - `notebooks/table2_execution_note.md`
   - Table 2 の実行メモ
+
+### 出力
+
 - `outputs/table2_preview.csv`
   - Table 2 の確認用CSV
 - `outputs/table2_preview.xlsx`
