@@ -1,7 +1,14 @@
+# Python関連
 .venv/
 __pycache__/
-.ipynb_checkpoints/
 *.pyc
 
-outputs/
+# Jupyter関連
+.ipynb_checkpoints/
+
+# ローカル用ルール
 AGENTS.md
+
+# ローカル用データと参考資料
+data/
+reference/

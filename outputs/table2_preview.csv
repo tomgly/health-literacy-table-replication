@@ -1,0 +1,37 @@
+variable,category,N,%,prevalence_percent,95% CI,p_value
+Gender,Male,451,76.8,14.3,11.3-17.9,1.0
+Gender,Female,136,23.2,14.3,9.3-21.2,
+agegroup3,38 to 69 years,199,33.9,8.6,5.5-13.4,0.005
+agegroup3,70 to 79 years,267,45.5,15.3,11.4-20.1,
+agegroup3,80 years above,121,20.6,21.7,15.2-30.1,
+ms2g,married,441,75.1,13.7,10.8-17.3,0.568
+ms2g,unmarried,146,24.9,16.1,11.0-23.0,
+RA06ur,Urban Area,428,72.9,13.2,10.3-16.7,0.259
+RA06ur,Rural Australia,159,27.1,17.3,12.2-24.0,
+Stateno,SA practice,329,56.0,14.6,11.2-18.9,0.877
+Stateno,QLD practice,258,44.0,13.8,10.1-18.6,
+educatn4g,post grad/bachelor,64,10.9,9.5,4.4-19.3,0.048
+educatn4g,advdipl/dipl/certif/trade,221,37.6,11.9,8.3-16.9,
+educatn4g,seniorsec/secondary,239,40.7,15.0,11.0-20.2,
+educatn4g,no schooling/primary,63,10.7,25.0,15.8-37.2,
+workst3g,employed,93,15.8,12.0,6.8-20.2,0.489
+workst3g,retired,126,21.5,12.1,7.5-19.0,
+workst3g,pensioner,368,62.7,15.6,12.2-19.8,
+econ3g,very high to higher,100,17.0,12.1,7.1-20.0,0.766
+econ3g,the same,367,62.5,14.5,11.2-18.5,
+econ3g,lower to very low,120,20.4,15.5,10.0-23.2,
+irsd_quint,highest,137,23.3,10.6,6.4-17.0,0.002
+irsd_quint,high,182,31.0,9.0,5.6-14.1,
+irsd_quint,middle,90,15.3,14.6,8.7-23.4,
+irsd_quint,low,178,30.3,22.3,16.8-29.0,
+ischprocedure,no,163,27.8,15.2,10.4-21.6,0.804
+ischprocedure,yes,424,72.2,13.9,10.9-17.6,
+yearsIHD3g,0-5 years,216,36.8,16.6,12.2-22.2,0.073
+yearsIHD3g,6-10 years,174,29.6,8.9,5.5-14.2,
+yearsIHD3g,>10 years,192,32.7,15.8,11.3-21.6,
+CVDcomorb3g,none,357,60.8,11.9,8.9-15.7,0.124
+CVDcomorb3g,just 1,147,25.0,17.6,12.2-24.7,
+CVDcomorb3g,2 or more,83,14.1,18.8,11.7-28.7,
+CVDriskf3g,0-1 risk factors,133,22.7,12.5,7.8-19.3,0.719
+CVDriskf3g,2 risk factors,215,36.6,15.6,11.4-21.1,
+CVDriskf3g,3 or more,239,40.7,14.0,10.2-19.1,

@@ -1,70 +1,61 @@
-# Applied Statistics Assignment
+# Health Literacy Table Replication
 
-Pythonでデータ分析を学びながら、応用統計学の課題3を進めるための作業フォルダです。
+応用統計学の課題3で、health literacy と QOL のデータを使って論文の表を再現するための作業フォルダです。
 
 ## 目的
 
 - `hl_qol.csv` を使って論文の Table 2、Table 3、Table 4 に近い分析を行う
-- Pythonでデータ確認、集計、統計検定、回帰分析を学ぶ
-- 完成物を丸ごと作るより、処理の意味を理解することを優先する
-
-## フォルダ構成
-
-```text
-assignment/
-├─ data/
-│  ├─ raw/
-│  │  ├─ hl_qol.csv
-│  │  └─ hl_qol.dta
-│  └─ dictionary/
-│     └─ variable_table.xlsx
-├─ reference/
-│  ├─ assignment/
-│  │  ├─ 応用統計学_最終レポート課題.pdf
-│  │  └─ Assignment 1 questions 3.docx
-│  └─ original_tables/
-│     ├─ table2_original.png
-│     ├─ table3_original.png
-│     └─ table4_original.png
-├─ scripts/
-├─ notebooks/
-└─ outputs/
-```
+- データ確認、集計、統計検定、回帰分析の流れを理解する
+- 完成物を丸ごと作るより、処理の意味を説明できるようにする
 
 ## 主なファイル
 
+- `scripts/03_table2_blocks.py`
+  - Table 2 の集計を作るPythonスクリプト
+- `notebooks/table2_execution_note.md`
+  - Table 2 の実行メモ
+- `outputs/table2_preview.csv`
+  - Table 2 の確認用CSV
+- `outputs/table2_preview.xlsx`
+  - Table 2 の確認用Excel
+
+## ローカルで用意するファイル
+
 - `data/raw/hl_qol.csv`
-  - Python分析で主に使うローデータ
-- `data/raw/hl_qol.dta`
-  - Stata形式の元データ
+  - 分析で使うローデータ
 - `data/dictionary/variable_table.xlsx`
   - 変数名とカテゴリの説明
-- `reference/original_tables/`
-  - 論文の Table 2、Table 3、Table 4 の確認用画像
 
-## 最初にやること
+## Table 2 の実行
 
-まずはデータの中身を確認します。
-
-```python
-import pandas as pd
-
-df = pd.read_csv("data/raw/hl_qol.csv")
-
-print(df.shape)
-print(df.columns)
-print(df.head())
-print(df.isna().sum())
-```
-
-## Gitについて
-
-このフォルダはローカルでGit管理します。
-GitHubに上げる前提ではありません。
+Table 2 は次のコマンドで作ります。
 
 ```powershell
-git init
-git status
+python scripts/03_table2_blocks.py
 ```
 
-必要になったら、自分の学習区切りごとにコミットします。
+出力先は以下です。
+
+- `outputs/table2_preview.csv`
+- `outputs/table2_preview.xlsx`
+
+処理内容は `notebooks/table2_execution_note.md` に短くまとめています。
+
+## 最初に確認すること
+
+まずは以下を確認します。
+
+- 元データ: `data/raw/hl_qol.csv`
+- 変数表: `data/dictionary/variable_table.xlsx`
+- 論文の元表: `reference/original_tables/`
+- Table 2 の実行メモ: `notebooks/table2_execution_note.md`
+
+## メモ
+
+このプロジェクトは学習用です。
+論文の表と完全一致させることより、どの変数を使って何を計算しているかを理解することを優先します。
+
+## 元論文
+
+- DOI: `10.1371/journal.pone.0151079`
+- 論文リンク: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0151079
